@@ -1,10 +1,15 @@
 import LogoPNG from '../logo.png'
+import styled from 'styled-components'
+
+const LogoImg = styled.img`
+  display: block;
+`;
 
 const Logo = () => {
   return (
-    <div>
-        <img src={LogoPNG} alt='QR Code Generator Logo' width='80' height='80' />
-    </div>
+    <>
+        <LogoImg src={LogoPNG} alt='QR Code Generator Logo' />
+    </>
   )
 }
 

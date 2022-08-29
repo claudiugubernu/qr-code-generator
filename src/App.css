@@ -38,3 +38,25 @@ p {
 .fw-400 {
   font-weight: 400;
 }
+
+.site-margins {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+@media screen and (max-width: 550) {
+  p {
+    font-size: 1.75rem;
+  }
+
+  .site-margins {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.App {
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;
+}
