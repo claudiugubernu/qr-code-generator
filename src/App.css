@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&display=swap');
 
 :root {
-  --color-primary: #595959;
-  --color-secondary: #EDEDED;
+  /* --color-primary: #595959; */
+  /* --color-secondary: #EDEDED; */
+  /* --color-btn: #21C78B; */
+
   --color-white: #FFFFFF;
   --color-black: #000000;
-  --color-btn: #21C78B;
+
+  --color-btn: #CFD444;
+  --color-primary: #9B85A4;
+  --color-secondary: #403744;
 }
 
 * {

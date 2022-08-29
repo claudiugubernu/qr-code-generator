@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
+import QRComponent from "./QRComponent";
+import LoadingScreenComponent from "./LoadingScreenComponent";
 
 const Wrapper = styled.div`
     margin-top: 50px;
@@ -8,14 +10,14 @@ const Wrapper = styled.div`
 `;
 
 const QRGenerator = () => {
-    const [ QRCode, setQrCode ] = useState({
-        url: "",
-        size: ""
-    })
+    const [ QRCode, setQRCode ] = useState({})
+    const [ fakeLoad, setFakeLoad ] = useState(true)
 
     return (
     <Wrapper>
-        <FormComponent />
+        <FormComponent setQRCode={setQRCode} setFakeLoad={setFakeLoad}/>
+        { fakeLoad && <LoadingScreenComponent /> }
+        <QRComponent QRCode={QRCode} />
     </Wrapper>
     )
 }
