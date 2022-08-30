@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&display=swap');
 
 :root {
-  /* --color-primary: #595959; */
-  /* --color-secondary: #EDEDED; */
-  /* --color-btn: #21C78B; */
-
   --color-white: #FFFFFF;
   --color-black: #000000;
 
   --color-btn: #CFD444;
+  --color-error: #914343;
   --color-primary: #9B85A4;
   --color-secondary: #403744;
 }
@@ -44,24 +41,31 @@ p {
   font-weight: 400;
 }
 
-.site-margins {
-  padding-left: 35px;
-  padding-right: 35px;
+.App {
+  overflow: hidden;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-@media screen and (max-width: 550) {
+@media screen and (max-width: 768px) {
   p {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
+    max-width: 400px;
   }
 
   .site-margins {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .App {
+    max-width: 500px;
+  }
+
+  form {
+    max-width: 300px;
   }
 }
 
-.App {
-  overflow: hidden;
-  max-width: 500px;
-  margin: 0 auto;
-}

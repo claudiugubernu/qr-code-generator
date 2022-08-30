@@ -1,12 +1,17 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { QRCodeCanvas } from 'qrcode.react';
+
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 const QRComponent = ({ QRCode }) => {
-    console.log(QRCode);
 
   return (
-    <div>
-        
-    </div>
+    <Wrapper>
+        <QRCodeCanvas value={QRCode.url} size={QRCode.size}/>
+    </Wrapper>
   )
 }
 

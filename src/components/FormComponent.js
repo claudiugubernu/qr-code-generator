@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components"
+import { isValidUrl } from "../utils/isValidURL";
 
 const Form = styled.form`
     width: 100%;
@@ -54,14 +56,27 @@ const SubmitButton = styled.button`
     }
 `;
 
+const Error = styled.p`
+    color: var(--color-error);
+    font-size: 0.75em;
+    margin-top: 10px;
+`;
+
 
 const FormComponent = ({ setQRCode, setFakeLoad }) => {
+    const [ error, setError ] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        
         const QRUrl = e.target.qrUrl.value
         const QRSize = e.target.qrSize.value
+
+        if(!isValidUrl(QRUrl)) {
+            setError('This is not a valid URL')
+            return
+        }
 
         setQRCode(prev => ({
             ...prev,
@@ -75,13 +90,16 @@ const FormComponent = ({ setQRCode, setFakeLoad }) => {
     }
   return (
     <Form onSubmit={handleSubmit}>
-        <InputField name='qrUrl' type='text' placeholder='Your URL' required/>
+        <div>
+            <InputField name='qrUrl' type='text' placeholder='Your URL' required/>
+            {error.length > 1 && <Error>{error}</Error>}
+        </div>
         <InputSelect name='qrSize'>
+            <option value='200' defaultValue>200</option>
             <option value='300'>300</option>
             <option value='400'>400</option>
             <option value='500'>500</option>
             <option value='600'>600</option>
-            <option value='700'>700</option>
         </InputSelect>
         <SubmitButton type="submit">Generate</SubmitButton>
     </Form>

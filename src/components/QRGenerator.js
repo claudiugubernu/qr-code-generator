@@ -7,17 +7,23 @@ import LoadingScreenComponent from "./LoadingScreenComponent";
 const Wrapper = styled.div`
     margin-top: 50px;
     z-index: 5;
+    display: flex;
+    gap: 50px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const QRGenerator = () => {
     const [ QRCode, setQRCode ] = useState({})
-    const [ fakeLoad, setFakeLoad ] = useState(true)
+    const [ fakeLoad, setFakeLoad ] = useState(false)
 
     return (
     <Wrapper>
         <FormComponent setQRCode={setQRCode} setFakeLoad={setFakeLoad}/>
         { fakeLoad && <LoadingScreenComponent /> }
-        <QRComponent QRCode={QRCode} />
+        { !fakeLoad && <QRComponent QRCode={QRCode} /> }  
     </Wrapper>
     )
 }
